@@ -1,0 +1,23 @@
+{% if latest_client_list %}
+
+          <ol style="font-family:verdana;">
+        {% for client in latest_client_list %}
+            <!-- <li><a href="{% url 'acupet:detail' client.id %}">{{ client.client_name}} {{ client.address }}</a></li> /-->
+            <!-- <li><a href="https://www.google.com/maps/search/?api=1&query={{ client.address }}" target="new">{{client.client_name}}</a></li> /-->
+                 <li style="padding-bottom: 2px;"><button style="background-color: blue; color:white;border-radius: 4px;"
+                   onclick="window.location.href='https://maps.apple.com/?daddr={{ client.address }}' ">
+                   Apple Map</button>
+                   <button style="background-color: green; color:white;border-radius: 4px;"
+                     onclick="window.location.href='https://www.google.com/maps/search/?api=1&query={{ client.address }}'">
+                    Google Map</button>
+
+                   &nbsp; {{client.client_name}}
+
+                  <!--   <a href="https://maps.apple.com/?daddr={{ client.address }}" target="new">{{client.client_name}}</a> /-->
+
+                </li>
+        {% endfor %}</ol>
+<!-- GOOGLE:<a href="https://www.google.com/maps/search/?api=1&query={{ client.address }}" target="new">{{client.client_name}}</a> /-->
+{% else %}
+    <p>None available.</p>
+{% endif %}

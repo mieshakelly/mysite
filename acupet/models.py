@@ -18,4 +18,3 @@ class Pet(models.Model):
 
     def __str__(self):
         return self.pet_name
-        
