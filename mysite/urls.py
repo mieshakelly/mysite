@@ -25,6 +25,6 @@ urlpatterns = [
 
 admin.site.site_header = 'Acupet admin'
 admin.site.site_title = 'Scheduling and Animal Health admin'
-admin.site.site_url = 'http://#'
+admin.site.site_url = 'http://101.175.47.84:8011/acupet'
 admin.site.index_title = 'Acupet Schedule & Animal Health'
 admin.empty_value_display = '**Empty**'

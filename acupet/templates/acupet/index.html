@@ -1,26 +1,51 @@
-{% if latest_client_list %}
+<!doctype html>
+<html lang="en" >
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-          <ol style="font-family:verdana;">
-        {% for client in latest_client_list %}
-            <!-- <li><a href="{% url 'acupet:detail' client.id %}">{{ client.client_name}} {{ client.address }}</a></li> /-->
-            <!-- <li><a href="https://www.google.com/maps/search/?api=1&query={{ client.address }}" target="new">{{client.client_name}}</a></li> /-->
-                 <li style="padding-bottom: 2px;">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-                   <button style="background-color: green; color:white;border-radius: 4px;"
-                     onclick="window.location.href='https://www.google.com/maps/search/?api=1&query={{ client.address }}'">
-                    Google Map</button>
 
-                   <button style="background-color: blue; color:white;border-radius: 4px;"
-                   onclick="window.location.href='https://maps.apple.com/?daddr={{ client.address }}' ">
-                   Apple Map</button>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-                   &nbsp; {{client.client_name}}
+    <title>Acupet Client Mapper</title>
 
-                 
+  </head>
+  <body style="font-size: 12px;"">
+    <div>
+    <center><h3> Acupet Client Mapper </h3></center>
+    </div>
+    <div class="container-fluid">
 
-                </li>
-        {% endfor %}</ol>
-<!-- GOOGLE:<a href="https://www.google.com/maps/search/?api=1&query={{ client.address }}" target="new">{{client.client_name}}</a> /-->
-{% else %}
-    <p>None available.</p>
-{% endif %}
+      {% if latest_client_list %}
+          {% for client in latest_client_list %}
+
+      <div class="row no-gutters">
+        <div class="col-3 text-right">
+          <button style="background-color: blue; margin: 3px 0px 3px 3px;color:white;border-radius: 4px;"
+          onclick="window.location.href='https://maps.apple.com/?daddr={{ client.address }}' ">
+          Map
+          </button>
+        </div>
+        <div class="col-9 text-left" >
+         &nbsp; {{client.client_name}}
+         ...<a href="http://101.175.47.84:8011/admin/acupet/client/{{ client.id }}/change/"> <i class="fa icon-edit"></i></a>
+
+        </div>
+      </div>
+         {% endfor %}
+      {% else %}
+         <p>None available.</p>
+      {% endif %}
+      <center><a href="http://101.175.47.84:8011/admin/acupet/client/"> — ADMIN — </a></center>
+    </div>
+
+<script src="https://use.fontawesome.com/f227c72c47.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
